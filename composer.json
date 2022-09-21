@@ -1,0 +1,16 @@
+{
+    "name": "dori/bill99",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Dori\\Bill99\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dori.ji",
+            "email": "dori.ji@feisu.com"
+        }
+    ],
+    "require": {}
+}
