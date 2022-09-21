@@ -31,11 +31,11 @@ class Bill99Service
         self::getDefaultParameters();
     }
 
-    /***
-     * @note:初始化默认参数
-     *
-     * @author:paul
-     * @date:Times
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:初始化默认参数
+     * @Return array
      */
     private function getDefaultParameters()
     {
@@ -69,7 +69,7 @@ class Bill99Service
      * @param $product_desc
      * @return array|string
      */
-    public function logicHandle($orders_number,$email_address,$total_price,$product_desc)
+    public function logicHandle($total_price,$orders_number,$email_address,$product_desc)
     {
         $this ->orders_number = $orders_number;
         $this ->email_address = $email_address;
@@ -83,13 +83,11 @@ class Bill99Service
     }
 
 
-    /***
-     * @note:异步回调处理请求(bill99 里面是同步通知)
-     *
-     * @author:paul
-     * @date:Times
-     * @param Request $request
-     * @return bool
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:异步回调处理请求(bill99 里面是同步通知)
+     * @Return array
      */
     public function notify()
     {
@@ -121,10 +119,11 @@ class Bill99Service
         exit();
     }
 
-    /***
-     * @note:bill99 跳转
-     * @author:paul
-     * @date:Times
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:bill99 跳转
+     * @Return array
      */
     public function redirect($resultCode, $out_trade_no = '')
     {
@@ -147,12 +146,11 @@ class Bill99Service
         return '<result>'.$resultState.'</result> <redirecturl>'.$location.'</redirecturl>';
     }
 
-    /***
-     * @note:执行重定提交请求
-     *
-     * @author:paul
-     * @date:2019/10/29 19:01
-     * @return array
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:执行重定提交请求
+     * @Return array
      */
     private function buildRequestStr()
     {
@@ -184,11 +182,11 @@ class Bill99Service
         return $outStr;
     }
 
-    /***
-     * @note:支付业务参数构建
-     *
-     * @author:paul
-     * @date:Times
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:支付业务参数构建
+     * @Return array
      */
     private function buildRequest()
     {
@@ -221,14 +219,11 @@ class Bill99Service
         $this ->form_params['signMsg'] = $sign;
     }
 
-    /***
-     * @note:拼接链接信息
-     *
-     * @author:paul
-     * @date:Times
-     * @param $kq_va
-     * @param $kq_na
-     * @return string
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:拼接链接信息
+     * @Return array
      */
     private function kqckLinkNull($kq_va, $kq_na)
     {
@@ -239,13 +234,11 @@ class Bill99Service
         }
     }
 
-    /***
-     * @note:获取签名
-     *
-     * @author:paul
-     * @date:2019/10/29 9:50
-     * @param $kq_all_para
-     * @return string
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:获取签名
+     * @Return array
      */
     private function getSign($kq_all_para)
     {
@@ -263,13 +256,11 @@ class Bill99Service
     }
 
 
-    /***
-     * @note:沙箱测试的签名的方法
-     *
-     * @author:paul
-     * @date:Times
-     * @param $kq_all_para
-     * @return string
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:沙箱测试的签名的方法
+     * @Return array
      */
     private function getDevSign($kq_all_para)
     {
@@ -286,13 +277,11 @@ class Bill99Service
         return $signMsg;
     }
 
-    /***
-     * @note:加密解密参数排序
-     *
-     * @author:paul
-     * @date:2019/10/29 9:50
-     * @param $params
-     * @return array
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:加密解密参数排序
+     * @Return array
      */
     private function sortRequest($params)
     {
@@ -344,13 +333,11 @@ class Bill99Service
     }
 
 
-    /***
-     * @note:数据解密验签排序
-     *
-     * @author:paul
-     * @date:Times
-     * @param $params
-     * @return array
+    /**
+     * @Author: dori
+     * @Date: 2022/9/21
+     * @Descrip:数据解密验签排序
+     * @Return array
      */
     private function sortVerifyRequest($params)
     {
